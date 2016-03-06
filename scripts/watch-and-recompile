@@ -4,4 +4,4 @@ cd $(dirname $0)/..
 
 mkdir -p public/build
 
-./node_modules/.bin/watchify -t [ babelify --presets [ react ] ] src/app.js -o public/build/bundle.js
+./node_modules/.bin/watchify -t [ babelify ] src/app.js -o public/build/bundle.js
