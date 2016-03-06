@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+cd $(dirname $0)/..
+
+find public | entr -d osascript -e 'tell application "Google Chrome" to reload active tab of window 1'

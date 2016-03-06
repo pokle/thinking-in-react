@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+rm -rf public/build
+mkdir -p public/build
+
+env NODE_ENV=production ./node_modules/.bin/browserify -t [ babelify ] src/app.js -o public/build/bundle.js
