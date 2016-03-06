@@ -1,6 +1,4 @@
-# react-start
-
-Minimal React starter
+# react-minimal-start
 
 ## Try it out
 
