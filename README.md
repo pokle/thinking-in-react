@@ -1,11 +1,22 @@
 # react-start
 
+Minimal React starter
+
+## Try it out
+
+Set up (re)build cycle in one terminal:
+
 	npm install
 	npm run-script watch
-	open public/index.html
+
+And then open public/index.html
+
+## Make it yours
+
+- Edit package.json
 
 ## Production build
 
-Generates public/build/bundle.js
+(Generates public/build/bundle.js)
 
 	npm run-script build
