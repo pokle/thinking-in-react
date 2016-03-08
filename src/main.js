@@ -1,4 +1,4 @@
-// This is the main entry point as compiled by scripts/*
+// This is the main entry point as compiled by scripts/build and scripts/watch
 
 import React from 'react'
 import ReactDOM  from 'react-dom'
@@ -9,6 +9,5 @@ ReactDOM.render(
 	<Container>
 		<h1>{hello('world')} of React!</h1>
 	</Container>,
-  	document.getElementById('app')
+  	document.getElementById('main')
 );
-

@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
-
+cd $(dirname $0)/..
 set -e
+set -x
 
 rm -rf public/build
 mkdir -p public/build
 
-env NODE_ENV=production ./node_modules/.bin/browserify -t [ babelify ] src/app.js -o public/build/bundle.js
+npm install
+
+env NODE_ENV=production \
+	./node_modules/.bin/browserify \
+	--verbose \
+	--transform [ babelify --presets [react es2015] ] \
+	--entry src/main.js \
+	--outfile public/build/bundle.js

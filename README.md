@@ -4,15 +4,19 @@ A minimal (I promise!) React starter kit with:
 
 	- ES2015 (ES6) compilation (Babel)
 	- Browserify build (For require('...') modules)
+	- live reload of your browser thanks to budo
 
-## Try it out
+## Dev workflow
 
-Set up (re)build cycle in one terminal:
+1. Start the watch script that re-compiles your app
 
-	npm install
-	./scripts/watch-and-recompile
+		./scripts/watch --live --open
 
-And then open public/index.html
+	(--open opens the browser, and --live reloads it when you change source files)
+
+2. Make an edit to your code, and save it from your editor
+3. Look at the result in the reloaded browser
+4. Repeat
 
 ## Production build
 
