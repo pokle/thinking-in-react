@@ -43,6 +43,7 @@ Required by the build:
 2. Deploy public/** to your website
 
 ## References
+- [React](https://facebook.github.io/react/)
 - [Babel](https://babeljs.io/)
 - [Browserify](http://browserify.org/)
 - [How to use npm as a build tool](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
