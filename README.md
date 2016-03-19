@@ -4,8 +4,15 @@ A minimal React starter kit without the batteries.
 
 What you get:
 	- ES2015 (ES6) compilation (Babel)
-	- npm + browserify for modules
+	- npm is your package manager
+	- Browserify lets you require('modules') in the browser
 	- Live reload of your browser thanks to budo
+
+What you need to figure out on your own:
+	- Minimisation - Use uglify?
+	- Tests - That test library that React proposes
+	- Data management - How to add in Redux, etc.
+
 
 ## Dev workflow
 
@@ -43,11 +50,3 @@ Required by the build:
 ## Build pipeline
 - npm is the package manager - so add libraries to package.json
 - browserify is used to compile src/app.js (and dependencies) to public/build/bundle.js
-
-## What's missing?
-
-These are things you'll need to figure out yourself
-
-- Minimisation - Use uglify?
-- Tests - That test library that React proposes
-- Data management - How to add in Redux, etc.
