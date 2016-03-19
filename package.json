@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "description": "A template project to help you write minimal React single page apps",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":       "echo \"Error: no test specified\" && exit 1",
+    "clean":      "rm -rf public/build",
+    "prebuild":   "npm run clean && (test -d node_modules || npm install) && mkdir -p public/build",
+    "build":      "env NODE_ENV=production  browserify --entry src/app.js --outfile public/build/bundle.js        --verbose --transform [ babelify --presets [react es2015] ]",
+    "build:live": "env NODE_ENV=development budo src/app.js:build/bundle.js --live --open --dir public -- --debug --verbose --transform [ babelify --presets [react es2015] ]"
   },
   "keywords": [],
   "author": "",
