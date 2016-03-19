@@ -18,11 +18,37 @@ A minimal (I promise!) React starter kit with:
 3. Look at the result in the reloaded browser
 4. Repeat
 
-## Production build
+## Finding your way around
 
-(Generates public/build/bundle.js)
+Required by the build:
 
-	./scripts/build
+- `package.json`      - package manager configuration - edit your dependencies here
+- `public/`	          - Everything here should be deployed
+- `public/index.html`
+- `public/build/`     - Compiled from src/app.js (by browserify and babelify)
+- `src/`              - All your Javascript ES6 source files go here.
+- `src/app.js`        - The main entry point
+- `scripts/` 				  - Shell scripts
+
+
+Conventions:
+Dan Abramov's [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.nfmzrakn4):
+
+- `src/containers`   - Place all your data aware React components here
+- `src/presentation` - Place all your pure presentation React components here
+
+## Releasing
+
+1. Build public/build/bundle.js
+
+		./scripts/build
+
+2. Deploy public/** to your website
+
+
+## Build pipeline
+- npm is the package manager - so add libraries to package.json
+- browserify is used to compile src/app.js (and dependencies) to public/build/bundle.js
 
 ## What's missing?
 

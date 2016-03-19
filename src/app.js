@@ -1,4 +1,4 @@
-// This is the main entry point as compiled by scripts/build and scripts/watch
+// This is the main entry point of the application
 
 import React from 'react'
 import ReactDOM  from 'react-dom'
