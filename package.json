@@ -2,8 +2,7 @@
   "name": "react-minimal-start",
   "repository": "https://github.com/pokle/react-minimal-start",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A template project to help you write minimal React single page apps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

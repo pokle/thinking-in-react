@@ -12,5 +12,5 @@ env NODE_ENV=production \
 	./node_modules/.bin/browserify \
 	--verbose \
 	--transform [ babelify --presets [react es2015] ] \
-	--entry src/main.js \
+	--entry src/app.js \
 	--outfile public/build/bundle.js

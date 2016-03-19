@@ -9,5 +9,5 @@ ReactDOM.render(
 	<Container>
 		<h1>{hello('world')} of React!</h1>
 	</Container>,
-  	document.getElementById('main')
+  document.getElementById('app')
 );
