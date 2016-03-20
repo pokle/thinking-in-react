@@ -23,6 +23,11 @@ What you need to figure out on your own:
 3. Look at the result in the reloaded browser
 4. Repeat
 
+## Repl
+
+	npm install --global babel-cli
+	babel-node
+
 ## Finding your way around
 
 Required by the build:
