@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
+import LinkedStateMixin from 'react-addons-linked-state-mixin'
 
 const ProductCategoryRow = ({category}) =>
   (<tr><th colSpan="2">{category}</th></tr>);
@@ -40,28 +41,18 @@ var ProductTable = React.createClass({
 });
 
 var SearchBar = React.createClass({
-  handleChange: function() {
-    this.props.onUserInput(
-      this.refs.filterTextInput.value,
-      this.refs.inStockOnlyInput.checked
-    );
-  },
   render: function() {
     return (
       <form>
         <input
           type="text"
           placeholder="Search..."
-          value={this.props.filterText}
-          ref="filterTextInput"
-          onChange={this.handleChange}
+          valueLink={this.props.filterTextLink}
         />
         <p>
           <input
             type="checkbox"
-            checked={this.props.inStockOnly}
-            ref="inStockOnlyInput"
-            onChange={this.handleChange}
+            checkedLink={this.props.inStockOnlyLink}
           />
           {' '}
           Only show products in stock
@@ -72,6 +63,9 @@ var SearchBar = React.createClass({
 });
 
 var FilterableProductTable = React.createClass({
+
+  mixins: [LinkedStateMixin],
+
   getInitialState: function() {
     return {
       filterText: '',
@@ -79,20 +73,13 @@ var FilterableProductTable = React.createClass({
     };
   },
 
-  handleUserInput: function(filterText, inStockOnly) {
-    this.setState({
-      filterText: filterText,
-      inStockOnly: inStockOnly
-    });
-  },
-
   render: function() {
+
     return (
       <div>
         <SearchBar
-          filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-          onUserInput={this.handleUserInput}
+          filterTextLink={this.linkState('filterText')}
+          inStockOnlyLink={this.linkState('inStockOnly')}
         />
         <ProductTable
           products={this.props.products}
