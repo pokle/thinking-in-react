@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
 
-var ProductCategoryRow = React.createClass({
-  render: function() {
-    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
-  }
-});
+const ProductCategoryRow = ({category}) =>
+    (<tr><th colSpan="2">{category}</th></tr>);
 
 var ProductRow = React.createClass({
   render: function() {
