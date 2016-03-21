@@ -2,23 +2,14 @@ import React from 'react'
 import ReactDOM  from 'react-dom'
 
 const ProductCategoryRow = ({category}) =>
-    (<tr><th colSpan="2">{category}</th></tr>);
+  (<tr><th colSpan="2">{category}</th></tr>);
 
-var ProductRow = React.createClass({
-  render: function() {
-    var name = this.props.product.stocked ?
-      this.props.product.name :
-      <span style={{color: 'red'}}>
-        {this.props.product.name}
-      </span>;
-    return (
-      <tr>
-        <td>{name}</td>
-        <td>{this.props.product.price}</td>
-      </tr>
-    );
-  }
-});
+const ProductRow = ({product}) => (
+    <tr>
+      <td><span style={{color: product.stocked ? 'black': 'red'}}>{product.name}</span></td>
+      <td>{product.price}</td>
+    </tr>
+);
 
 var ProductTable = React.createClass({
   render: function() {
