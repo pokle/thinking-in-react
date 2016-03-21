@@ -6,4 +6,4 @@ Turned into more compact ES6 code.
 
 Try it out with:
 
-  npm run build:live
+    npm run build:live
