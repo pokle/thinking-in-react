@@ -1,3 +1,9 @@
-# Thinking in React
+# Thinking in React (worked example)
 
-Example from: http://facebook.github.io/react/docs/thinking-in-react.html
+Based on the example from: http://facebook.github.io/react/docs/thinking-in-react.html
+
+Turned into more compact ES6 code.
+
+Try it out with:
+
+  npm run build:live

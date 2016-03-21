@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
-import LinkedStateMixin from 'react-addons-linked-state-mixin'
+import {createValueSource,ValueSourcedInput} from './value-source'
 
 function ProductCategoryRow({category}){
   return  <tr>
@@ -43,44 +43,42 @@ function ProductTable({products, filterText, inStockOnly}) {
     );
 }
 
-function SearchBar({filterTextLink,inStockOnlyLink}) {
+function SearchBar({filterTextValueSource,inStockOnlyValueSource}) {
     return (
       <form>
-        <input
+        <ValueSourcedInput
           type="text"
           placeholder="Search..."
-          valueLink={filterTextLink}
+          valueSource={filterTextValueSource}
         />
         <p>
-          <input
+          <ValueSourcedInput
+            id="stockcheck"
             type="checkbox"
-            checkedLink={inStockOnlyLink}
+            checkedSource={inStockOnlyValueSource}
           />
-          {' '}
-          Only show products in stock
+          <label htmlFor="stockcheck">Only show products in stock</label>
         </p>
       </form>
     );
 }
 
-var FilterableProductTable = React.createClass({
+class FilterableProductTable extends React.Component {
 
-  mixins: [LinkedStateMixin],
-
-  getInitialState: function() {
-    return {
-      filterText: '',
-      inStockOnly: false
+  constructor(props) {
+    super(props);
+    this.state = {
+        filterText: '',
+        inStockOnly: false
     };
-  },
+  }
 
-  render: function() {
-
+  render() {
     return (
       <div>
         <SearchBar
-          filterTextLink={this.linkState('filterText')}
-          inStockOnlyLink={this.linkState('inStockOnly')}
+          filterTextValueSource={createValueSource(this, 'filterText')}
+          inStockOnlyValueSource={createValueSource(this, 'inStockOnly')}
         />
         <ProductTable
           products={this.props.products}
@@ -90,8 +88,7 @@ var FilterableProductTable = React.createClass({
       </div>
     );
   }
-});
-
+}
 
 var PRODUCTS = [
   {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
