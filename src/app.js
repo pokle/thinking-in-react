@@ -2,22 +2,25 @@ import React from 'react'
 import ReactDOM  from 'react-dom'
 import LinkedStateMixin from 'react-addons-linked-state-mixin'
 
-const ProductCategoryRow = ({category}) =>
-  (<tr><th colSpan="2">{category}</th></tr>);
+function ProductCategoryRow({category}){
+  return  <tr>
+            <th colSpan="2">{category}</th>
+          </tr>;
+}
 
-const ProductRow = ({product}) => (
-    <tr>
-      <td><span style={{color: product.stocked ? 'black': 'red'}}>{product.name}</span></td>
-      <td>{product.price}</td>
-    </tr>
-);
+function ProductRow({product}) {
+  return  <tr>
+            <td><span style={{color: product.stocked ? 'black': 'red'}}>{product.name}</span></td>
+            <td>{product.price}</td>
+          </tr>;
+}
 
-var ProductTable = React.createClass({
-  render: function() {
+function ProductTable({products, filterText, inStockOnly}) {
     var rows = [];
     var lastCategory = null;
-    this.props.products.forEach(function(product) {
-      if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
+
+    products.forEach(function(product) {
+      if (product.name.indexOf(filterText) === -1 || (!product.stocked && inStockOnly)) {
         return;
       }
       if (product.category !== lastCategory) {
@@ -26,6 +29,7 @@ var ProductTable = React.createClass({
       rows.push(<ProductRow product={product} key={product.name} />);
       lastCategory = product.category;
     }.bind(this));
+
     return (
       <table>
         <thead>
@@ -37,30 +41,27 @@ var ProductTable = React.createClass({
         <tbody>{rows}</tbody>
       </table>
     );
-  }
-});
+}
 
-var SearchBar = React.createClass({
-  render: function() {
+function SearchBar({filterTextLink,inStockOnlyLink}) {
     return (
       <form>
         <input
           type="text"
           placeholder="Search..."
-          valueLink={this.props.filterTextLink}
+          valueLink={filterTextLink}
         />
         <p>
           <input
             type="checkbox"
-            checkedLink={this.props.inStockOnlyLink}
+            checkedLink={inStockOnlyLink}
           />
           {' '}
           Only show products in stock
         </p>
       </form>
     );
-  }
-});
+}
 
 var FilterableProductTable = React.createClass({
 
